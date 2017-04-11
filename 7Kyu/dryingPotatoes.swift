@@ -25,3 +25,9 @@ Example:
 
 potatoes(99, 100, 98) --> 50
 FUNDAMENTALSPUZZLESGAMES
+
+import Foundation
+
+func potatoes (_ p0: Int, _ w0: Int, _ p1: Int) -> Int {
+    return Int(floor(Double(w0) * (100.0 - Double(p0)) / (100.0 - Double(p1))))
+}

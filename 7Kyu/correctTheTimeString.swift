@@ -17,3 +17,18 @@ If the time-string-format is invalid, return null. (empty string for C++)
 Have fun coding it and please don't forget to vote and rank this kata! :-)
 
 I have created other katas. Have a look if you like coding and challenges.
+
+func correct(_ timeString: String?) -> String? {
+    guard let time = timeString, time.isEmpty == false
+        else { return timeString }
+    
+    let numbers = time.components(separatedBy: ":").flatMap({Int($0)})
+    guard numbers.count == 3
+        else { return nil }
+    
+    let timestamp = numbers[2] + numbers[1]*60 + numbers[0]*3600
+    let hours = (timestamp/3600)%24
+    let minutes = (timestamp/60)%60
+    let seconds = timestamp % 60
+    return "\(String(format: "%02d", hours)):\(String(format: "%02d",minutes)):\(String(format: "%02d",seconds))"
+}

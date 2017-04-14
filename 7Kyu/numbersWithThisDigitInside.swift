@@ -27,3 +27,12 @@ Have fun coding it and please don't forget to vote and rank this kata! :-)
 
 I have created other katas. Have a look if you like coding and challenges.
 ALGORITHMSBASIC LANGUAGE FEATURESFUNDAMENTALSMATHEMATICSNUMBERS
+
+
+func numbersWithDigitInside(_ x: Int64, _ d: Int64) -> [Int64] {
+   let numbers = (1...x).filter {String($0).contains(String(d))}
+
+    return [Int64(numbers.count),
+            numbers.reduce(Int64(0), +),
+            numbers.count > 0 ? numbers.reduce(Int64(1), *) : Int64(0)]
+}
